@@ -3,48 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="เว็บไซต์แสดงผลงานและทักษะของ Somchai">
-    <title>ความภาคภูมิใจของ SOMCHAI</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Portfolio - นายณัฐวัฒน์ สมพรรัตน์พันธ์</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --secondary: #0d9488;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-gold: #f59e0b;
+            --accent-green: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Sarabun', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-light), var(--secondary), var(--accent-gold));
+        }
+
+        .name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .info-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .badge {
+            background-color: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .badge.gold {
+            background-color: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        /* Section Styling */
+        .section-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin: 35px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-light);
+        }
+
+        .card.highlight { border-left: 4px solid var(--accent-gold); }
+        .card.featured { border-left: 4px solid var(--primary-light); }
+        .card.green { border-left: 4px solid var(--accent-green); }
+
+        .card-tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .card-tag.national { color: var(--accent-gold); }
+        .card-tag.award { color: var(--primary-light); }
+        .card-tag.honor { color: #ec4899; }
+        .card-tag.mentor { color: var(--accent-green); }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .card-org {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid #334155;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>สวัสดี!ผมชื่อ ณัฐวัฒน์ สมพรรัตน์พันธ์ </h1>
-        <p>นี่คือผลงานและความภาคภูมิใจของผม</p>
-    </header>
+    <div class="container">
+        <!-- Header / Profile -->
+        <header class="profile-card">
+            <h1 class="name">นายณัฐวัฒน์ สมพรรัตน์พันธ์</h1>
+            <p class="subtitle">นักเรียนระดับชั้นมัธยมศึกษาปีที่ 6/3 | โรงเรียนกระทุ่มแบน "วิเศษสมุทคุณ"</p>
+            <p style="color: #cbd5e1; font-size: 0.95rem;">
+                ความเชี่ยวชาญและความสนใจ: วิศวกรรมศาสตร์, เทคโนโลยี AI & IoT, การเขียนโปรแกรมควบคุมหุ่นยนต์ (Cobot), หุ่นยนต์พิชิตภารกิจ และการถ่ายทอดความรู้ด้าน Coding
+            </p>
+            <div class="info-badges">
+                <span class="badge gold">🏆 รางวัลชนะเลิศระดับประเทศ (AI & IoT)</span>
+                <span class="badge">🤖 เขียนโปรแกรมควบคุมหุ่นยนต์ Cobot</span>
+                <span class="badge">👨‍🏫 วิทยากรพี่เลี้ยงด้าน Coding & IoT</span>
+                <span class="badge">⭐ เกียรติบัตรวันเกียรติยศ 2 ปีซ้อน</span>
+            </div>
+        </header>
 
-    <section id="about">
-        <h2>เกี่ยวกับผม</h2>
-        <p>ผมอยากเป็นนักพัฒนาซอฟต์แวร์ที่มีความหลงใหลในการสร้างสรรค์สิ่งใหม่ ๆ ผมภูมิใจในผลงานและทักษะที่พัฒนามาอย่างต่อเนื่อง</p>
-    </section>
+        <!-- Section 1: ผลงานและความสำเร็จระดับประเทศ -->
+        <h2 class="section-title">🏆 รางวัลและความสำเร็จหลัก (Honors & Awards)</h2>
+        <div class="grid">
+            <div class="card highlight">
+                <div class="card-tag national">รางวัลชนะเลิศระดับประเทศ</div>
+                <h3 class="card-title">การแข่งขันฝึกปฏิบัติการด้านวิศวกรรมศาสตร์และเทคโนโลยี 5.0 AI & IoT PULTIMUM</h3>
+                <p class="card-org">จัดโดย: คณะวิศวกรรมศาสตร์ มหาวิทยาลัยมหิดล</p>
+                <p class="card-desc">
+                    ได้รับรางวัลชนะเลิศระดับมัธยมศึกษา ในการแข่งขันฝึกปฏิบัติการด้านวิศวกรรมศาสตร์และเทคโนโลยี 5.0 AI & IoT PULTIMUM ซึ่งเป็นการแข่งขันระดับประเทศที่ต้องผ่านการคัดเลือกเข้มข้นก่อนเข้าสู่รอบสุดท้าย การได้รับรางวัลครั้งนี้นับเป็นการคว้ารางวัลชนะเลิศของโรงเรียนติดต่อกันถึง <strong>4 ปีซ้อน</strong>
+                </p>
+            </div>
 
-    <section id="projects">
-        <h2>ผลงานของผม</h2>
-        <div class="project">
-            <h3>เว็บไซต์ Portfolio</h3>
-            <p>เว็บไซต์นี้เป็นหนึ่งในผลงานที่ผมสร้างขึ้นเพื่อแสดงความสามารถของผม</p>
+            <div class="card featured">
+                <div class="card-tag award">รางวัลชมเชย</div>
+                <h3 class="card-title">การแข่งขันเขียนโปรแกรมควบคุมหุ่นยนต์ Cobot ครั้งที่ 1</h3>
+                <p class="card-org">งาน RMUTR Engineering Open House 2025 | คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีราชมงคลรัตนโกสินทร์ (ศาลายา)</p>
+                <p class="card-desc">
+                    ประยุกต์ใช้ความรู้ด้านการเขียนโปรแกรมและการควบคุมหุ่นยนต์เพื่อแก้ปัญหาตามโจทย์การแข่งขัน ในโครงการ "เปิดโลก เปิดความคิด ผลิตนวัตกรที่ร่วมสร้างความยั่งยืน" พร้อมพัฒนาทักษะการคิดเชิงวิเคราะห์ การแก้ปัญหาอย่างเป็นระบบ และการทำงานร่วมกับผู้อื่นภายใต้ข้อจำกัดของเวลา
+                </p>
+            </div>
         </div>
-        <div class="project">
-            <h3>แอปพลิเคชันจัดการงาน</h3>
-            <p>แอปพลิเคชันที่ช่วยให้ผู้ใช้งานจัดการงานได้อย่างมีประสิทธิภาพ</p>
+
+        <!-- Section 2: รางวัลเชิดชูเกียรติระดับโรงเรียน -->
+        <h2 class="section-title">⭐ รางวัลเชิดชูเกียรติโรงเรียน (School Recognition)</h2>
+        <div class="grid">
+            <div class="card highlight">
+                <div class="card-tag honor">วันเกียรติยศ ประจำปี 2568 - 2569</div>
+                <h3 class="card-title">นักเรียนช่วยเหลือและเสียสละให้กับโรงเรียนด้านเทคโนโลยี (2 ปีติดต่อกัน)</h3>
+                <p class="card-org">มอบโดย: โรงเรียนกระทุ่มแบน "วิเศษสมุทคุณ"</p>
+                <p class="card-desc">
+                    ได้รับเกียรติบัตรเชิดชูเกียรติเนื่องในงาน "วันเกียรติยศ" ติดต่อกัน 2 ปี (พ.ศ. 2568-2569) ในฐานะนักเรียนช่วยเหลือและเสียสละให้กับโรงเรียนด้านเทคโนโลยี เพื่อยกย่องความมุ่งมั่นในการสนับสนุนงานและกิจกรรมด้านเทคโนโลยีของโรงเรียนอย่างต่อเนื่อง
+                </p>
+            </div>
+
+            <div class="card highlight">
+                <div class="card-tag honor">วันเกียรติยศ ประจำปี 2569</div>
+                <h3 class="card-title">นักเรียนผู้สร้างชื่อเสียงให้แก่โรงเรียน</h3>
+                <p class="card-org">มอบโดย: โรงเรียนกระทุ่มแบน "วิเศษสมุทคุณ"</p>
+                <p class="card-desc">
+                    ได้รับเกียรติบัตรเชิดชูเกียรติเนื่องในงาน "วันเกียรติยศ" ประจำปี 2569 ในฐานะนักเรียนผู้สร้างชื่อเสียงให้แก่โรงเรียน เพื่อยกย่องความมุ่งมั่นในการพัฒนาตนเอง การสร้างผลงาน และการมีส่วนร่วมในการส่งเสริมชื่อเสียงของโรงเรียนผ่านกิจกรรมและการแข่งขันด้านเทคโนโลยี
+                </p>
+            </div>
         </div>
-    </section>
 
-    <section id="skills">
-        <h2>ทักษะของผม</h2>
-        <ul>
-            <li>HTML, CSS, JavaScript</li>
-            <li>Python, Django</li>
-            <li>Git และ GitHub</li>
-            <li>การออกแบบ UI/UX</li>
-        </ul>
-    </section>
+        <!-- Section 3: ประสบการณ์วิทยากรและการถ่ายทอดความรู้ -->
+        <h2 class="section-title">👨‍🏫 ประสบการณ์วิทยากรและผู้นำ (Trainer & Mentorship)</h2>
+        <div class="grid">
+            <div class="card green">
+                <div class="card-tag mentor">วิทยากรพี่เลี้ยง</div>
+                <h3 class="card-title">อบรมเชิงปฏิบัติการ "เปิดโลก Coding ปลุกพลังความคิด พิชิตโรคดิจิทัล Coding and IoT Challenge 2026" (ครั้งที่ 2)</h3>
+                <p class="card-org">บทบาท: วิทยากรพี่เลี้ยงประจำกิจกรรม</p>
+                <p class="card-desc">
+                    รับมอบหมายให้ทำหน้าที่ถ่ายทอดความรู้ แนะนำเพื่อนๆ และน้องๆ ให้ฝึกทักษะการคิดเชิงตรรกะ (Logical Thinking) การแก้ปัญหา และการทำงานเป็นทีมผ่านกิจกรรมการเรียนรู้ด้าน Coding และ IoT
+                </p>
+            </div>
 
-    <footer>
-        <p>ติดต่อผมได้ที่: <a href="mailto:somchai@example.com">somchai@example.com</a></p>
-        <p>&copy; <span id="year"></span> SOMCHAI. All rights reserved.</p>
-    </footer>
+            <div class="card green">
+                <div class="card-tag mentor">วิทยากรการอบรม</div>
+                <h3 class="card-title">อบรมเชิงปฏิบัติการ "เปิดโลก Coding ระดับมัธยมศึกษาตอนปลาย" (รุ่นที่ 1 - พ.ศ. 2568)</h3>
+                <p class="card-org">บทบาท: วิทยากรประจำโครงการ</p>
+                <p class="card-desc">
+                    ได้รับเกียรติบัตรในฐานะวิทยากรจากการถ่ายทอดความรู้และแนะนำผู้เข้าร่วมกิจกรรมด้าน Coding เพื่อส่งเสริมทักษะการคิดเชิงตรรกะ การแก้ปัญหา และการทำงานร่วมกันผ่านการเรียนรู้เชิงปฏิบัติจริง
+                </p>
+            </div>
+        </div>
 
-    <script src="script.js"></script>
+        <!-- Section 4: ค่ายและกิจกรรมการฝึกอบรม -->
+        <h2 class="section-title">💡 การเข้าร่วมค่ายและการฝึกอบรม (Camps & Workshops)</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-tag award">ค่ายฝึกอบรมเข้มข้น</div>
+                <h3 class="card-title">OBEC AI Spark Camp & Hackathon (AI Spark Thailand)</h3>
+                <p class="card-org">จัดโดย: สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน (สพฐ.)</p>
+                <p class="card-desc">
+                    ผ่านการฝึกอบรมเชิงลึกในหลักสูตรพัฒนาศักยภาพด้านปัญญาประดิษฐ์ (AI) และการประยุกต์ใช้นวัตกรรมดิจิทัลเพื่อแก้โจทย์ปัญหาจริง
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-tag award">กิจกรรมส่งเสริมทักษะ</div>
+                <h3 class="card-title">กิจกรรมค่ายสะเต็มศึกษา (STEM Camp)</h3>
+                <p class="card-org">โรงเรียนกระทุ่มแบน "วิเศษสมุทคุณ"</p>
+                <p class="card-desc">
+                    เข้าร่วมกิจกรรมค่ายสะเต็มศึกษา ประจำปีการศึกษา 2568 เพื่อบูรณาการความรู้ด้านวิทยาศาสตร์ เทคโนโลยี วิศวกรรมศาสตร์ และคณิตศาสตร์ ผ่านการลงมือปฏิบัติจริง
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Portfolio - นายณัฐวัฒน์ สมพรรัตน์พันธ์ | โรงเรียนกระทุ่มแบน "วิเศษสมุทคุณ"</p>
+        </footer>
+    </div>
 </body>
 </html>
